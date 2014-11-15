@@ -136,6 +136,12 @@ namespace Rubiks.Models
         //O(n*n)
         public void initMatrix(string color)
         {
+            if (_size >= 5)
+                _size = 5;
+
+            if (_size <= 2)
+                _size = 2;
+
             _matrix = new string[_size, _size];
             for (int i = 0; i < _size; i++)
                 for (int j = 0; j < _size; j++)
