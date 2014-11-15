@@ -147,7 +147,7 @@ namespace Rubiks.Models
             string htmlstring = "";
             for (int j = 0; j < _size; j++)
             {
-                htmlstring += "<div id='row' style='height:2px;width:300px'>";
+                htmlstring += "<div id='row' style='float:left;height:2px;width:300px'>";
                 for (int k = 0; k < _size; k++)
                 {
                     htmlstring += "<div id='box' style='float:left;border-width:thin;border-color:black;border-style:solid;width:20px;height:20px;background:" + _matrix[j, k] + "'></div>";
@@ -242,7 +242,7 @@ namespace Rubiks.Models
                 facesString += "<br/>" + "face[" + i.ToString() + "]<br/>";
                 for (int j = 0; j < _size; j++)
                 {
-                    facesString += "<div id='row' style='height:2px;width:50px'>";
+                    facesString += "<div id='row' style='float:left;height:2px;width:50px'>";
                     for (int k = 0; k < _size; k++)
                     {
                         facesString += "<div id='box' style='float:left;border-width:thin;border-color:black;border-style:solid;width:20px;height:20px;background:" + _faces[i]._matrix[j, k] + "'></div>";
