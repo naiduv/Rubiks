@@ -1,4 +1,5 @@
 Rubicks cube
+============
 
 C# Asp.net MVC4 test
 
@@ -10,3 +11,4 @@ C# Asp.net MVC4 test
 
 If I increase the size to 1million x 1million the initialization would take far too long. I am not sure how to reduce the time to write each square.
 
+Try it here: http://rubix.azurewebsites.net/
