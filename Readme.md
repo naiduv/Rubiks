@@ -1,4 +1,4 @@
-Rubicks cube
+Rubiks cube
 ============
 
 C# Asp.net MVC4 test
