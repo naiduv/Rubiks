@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@ViewBag.Message
+
+</br>
+<form>
+size: <input type="text" name="index" id="size_input">
+<a href="#" onclick="changesize()">update size</a>
+</form>
+
+</br>
+<form>
+row/column index: <input type="text" name="index" id="index_input"><br>
+direction: <input type="text" name="index" id="direction_input">
+<a href="#" onclick="rotate()">rotate row/column</a>
+</form>
+
+</br>
+<form>
+direction: <input type="text" name="index" id="turn_direction_input">
+<a href="#" onclick="turn()">rotate rubiks cube</a>
+</form>
+
+
+</br>
+<div id="errorbox"></div>
+
+</br>
+
+<div id="rubikscube">@ViewBag.RubiksCubeFaces</div>
+
+<script>
+    function changesize() {
+        var link = "/?size=size_area";
+        var size = $("#size_input").val();
+        if (!size.length || parseInt(size)<2 || parseInt(size)>5) {
+            showerror("user input error: please enter a size between 2 and 5");
+            return;
+        }
+        link = link.replace("size_area", size);
+        window.location = link;
+    }
+
+    function turn() {
+        var link = "@Html.Raw(Url.Action("Turn", "Home", new { direction = "direction_area" }))";
+        var direction = $("#turn_direction_input").val();
+        if (!direction.length) {
+            showerror("user input error: missing direction input");
+            return;
+        }
+        link = link.replace("direction_area", direction);
+
+        if (isbaddirectionvalue(direction))
+            return;
+        getmessage(link);
+    }
+
+    function rotate() {
+        var link = "@Html.Raw(Url.Action("Rotate", "Home", new { index = "index_area", direction = "direction_area" }))";
+        var index = $("#index_input").val();
+        if(index<0 || index>@ViewBag.Size){
+            showerror("user input error: index should be between 0 and " +(@ViewBag.Size-1));
+            return;
+        }
+        var direction = $("#direction_input").val();
+        if (!index.length || !direction.length) {
+            showerror("user input error: missing index or direction input");
+            return;
+        }
+        if (isbaddirectionvalue(direction))
+            return;
+        link = link.replace("index_area", index);
+        link = link.replace("direction_area", direction);
+        
+        getmessage(link);
+    }
+
+    function showerror(str) {
+        $("#errorbox").html(str);
+    }
+
+    function isbaddirectionvalue(val) {
+        if (val != "up" && val != "down" && val != "left" && val != "right") {
+            showerror("user input error: bad direction value use 'up', 'down', 'left', 'right'");
+            return true;
+        }
+        return false;
+    }
+
+    function getmessage(link) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', link, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log("done");
+                $("#rubikscube").html(xhr.responseText);
+            }
+        }
+        xhr.send();
+    }
+
+    function postmessage(link) {
+        console.log("posting to " + link);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', link, true);
+        xhr.send();
+    }
+</script>
