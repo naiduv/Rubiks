@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using $safeprojectname$.Models;
+using Rubiks.Models;
 
-namespace $safeprojectname$.Controllers
+namespace Rubiks.Controllers
 {
     public class HomeController : Controller
     {

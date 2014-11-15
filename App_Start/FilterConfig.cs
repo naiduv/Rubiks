@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace $safeprojectname$
+namespace Rubiks
 {
     public class FilterConfig
     {

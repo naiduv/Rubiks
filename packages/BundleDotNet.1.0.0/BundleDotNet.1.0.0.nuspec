@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>BundleDotNet</id>
+    <version>1.0.0</version>
+    <title>BundleDotNet</title>
+    <authors>Francesco Pontillo</authors>
+    <owners>Francesco Pontillo</owners>
+    <projectUrl>https://github.com/frapontillo/BundleDotNet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.NET library implementing the Bundle class, just like the one on the Android SDK.</description>
+    <summary>.NET library implementing the Bundle class, just like the one on the Android SDK.</summary>
+    <releaseNotes>v1.0.0
+- First release, it includes Bundle and BundleBuilder.</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>bundle android dictionary hashset</tags>
+  </metadata>
+</package>

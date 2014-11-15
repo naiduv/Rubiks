@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Collections;
 
-namespace $safeprojectname$.Models
+namespace Rubiks.Models
 {
     class Face
     {
